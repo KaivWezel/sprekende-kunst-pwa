@@ -23,7 +23,6 @@
 	"homepage": "https://github.com/KaivWezel/sprekende-kunst-pwa#readme",
 	"dependencies": {
 		"dotenv": "^16.0.0",
-		"handlebars": "^4.7.7",
 		"nodemon": "^2.0.15"
 	}
 }

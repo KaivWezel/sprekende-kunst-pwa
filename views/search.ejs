@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head.ejs") %>
+	<body>
+		<%- include("./partials/header.ejs") %>
+		<form action="/search" method="POST" class="searchForm">
+			<h2>Wat zoek je?</h2>
+			<div class="field">
+				<label for="query">Trefwoord</label>
+				<input type="search" name="q" id="query" />
+			</div>
+			<div class="field">
+				<label for="artist">Kunstenaar</label>
+				<input type="search" name="involvedMaker" id="artist" />
+			</div>
+			<div class="field">
+				<label for="type">Type</label>
+				<input type="search" name="type" id="type" />
+			</div>
+			<div class="field">
+				<label for="material">Materiaal</label>
+				<input type="search" name="material" id="material" />
+			</div>
+			<div class="field">
+				<label for="technique">Techniek</label>
+				<input type="search" name="technique" id="technique" />
+			</div>
+			<div class="field">
+				<label for="period">Periode</label>
+				<input
+					type="number"
+					name="f.dating.period"
+					id="period"
+					min="0"
+					max="21"
+				/>
+			</div>
+			<button>Zoeken</button>
+		</form>
+	</body>
+</html>

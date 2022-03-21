@@ -1,18 +1,18 @@
-const express = require("express");
-const hbs = require("handlebars");
-const path = require("path");
+import express from "express";
+import ejs from "ejs";
+import * as path from "path";
+import { fileURLToPath } from "url";
+import Router from "./router/Router.js";
+
 const app = express();
 const port = 3030;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-app.set("view engine", "hbs");
-app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views"));
 
+app.use(express.urlencoded());
+app.use("/", Router);
 app.listen(port, () => {
 	console.log(`listening to port ${port}`);
-});
-
-app.get("/", (req, res) => {
-	res.render("index", {
-		title: "Dag Kai",
-	});
 });

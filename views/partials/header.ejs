@@ -1,7 +1,11 @@
 <header>
 	<h1><a href="/">Sprekende kunst</a></h1>
 	<nav>
-		<a href="/search">Zoeken</a>
+		<a href="/artists">Kunstenaars</a>
 		<a href="/results">Resultaten</a>
+		<form action="/results" method="GET">
+			<label for="search">Zoeken</label>
+			<input type="search" id="search" name="q" />
+		</form>
 	</nav>
 </header>

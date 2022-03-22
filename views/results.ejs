@@ -3,5 +3,13 @@
 	<%- include("./partials/head.ejs") %>
 	<body>
 		<%- include("./partials/header.ejs") %>
+		<h1>Resultaten</h1>
+		<%- include("./partials/result.ejs", {results: results}) %>
+		<div class="loader">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<button class="nextPage">Meer resultaten</button>
 	</body>
 </html>

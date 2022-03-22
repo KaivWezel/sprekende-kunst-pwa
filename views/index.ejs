@@ -8,7 +8,18 @@
 			<p>
 				Zoek naar je favoriete kunstwerk en ontdek wat er nog meer te vinden is
 			</p>
-			<a href="/search">Zoeken</a>
+			<form action="/results" method="GET" class="searchForm">
+				<h2>Wat zoek je?</h2>
+				<div class="field">
+					<label for="query">Trefwoord</label>
+					<input type="search" name="q" id="query" />
+				</div>
+				<div class="field">
+					<label for="artist">Kunstenaar</label>
+					<input type="search" name="involvedMaker" id="artist" />
+				</div>
+				<button>Zoeken</button>
+			</form>
 		</main>
 	</body>
 </html>

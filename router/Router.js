@@ -10,20 +10,21 @@ router.get("/", (req, res) => {
 	});
 });
 
-router.get("/search", async (req, res) => {
-	console.log(req.query);
-	const data = await fetch(
-		`https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&q=${req.query.q}&s=relevance&ps=20`
-	);
-	const results = await data.json();
-	console.log(results.artObjects);
-	res.render("results", {
-		results: results.artObjects,
-	});
+router.get("/artists", (req, res) => {
+	res.render("artists");
 });
 
-router.get("/results", (req, res) => {
-	res.render("results");
+router.get("/results", async (req, res) => {
+	console.log(req.query);
+	const data = await fetch(
+		`https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&q=${req.query}&s=relevance&ps=20`
+	);
+	const results = await data.json();
+	res.render("results", {
+		results: results.artObjects,
+		query: req.query.q,
+		count: results.artObjects.length,
+	});
 });
 
 router.get("/detail/:id", (req, res) => {

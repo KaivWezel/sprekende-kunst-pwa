@@ -2,6 +2,6 @@
 <div class="result">
 	<h3><%= result.title %></h3>
 	<h4><%= result.longTitle %></h4>
-	<img src="<%= result.webImage.url %>" alt= />
+	<img src="<% if (result.webImage) { %><%= result.webImage.url %><% } %>" alt= />
 </div>
 <% }); %>

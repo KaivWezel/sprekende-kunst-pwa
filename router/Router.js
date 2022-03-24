@@ -25,15 +25,23 @@ router.get("/results", async (req, res) => {
 		const query = req.query.q ? req.query.q : "";
 		const maker = req.query.involvedMaker ? req.query.involvedMaker : "";
 		const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&q=${query}&${maker}&s=relevance&ps=20`;
-		console.log(url);
-		const data = await fetch(url);
-		// console.log(data);
-		const results = await data.json();
-		res.render("results", {
-			results: results.artObjects,
-			query: req.query.q,
-			count: results.artObjects.length,
-		});
+		console.log("query:", req.query);
+		if (query != "") {
+			const data = await fetch(url);
+			// console.log(data);
+			const results = await data.json();
+			res.render("results", {
+				results: results.artObjects,
+				query: req.query.q,
+				count: results.artObjects.length,
+			});
+		} else {
+			res.render("results", {
+				query: null,
+				count: null,
+				results: undefined,
+			});
+		}
 	} catch (err) {
 		console.log(err);
 	}

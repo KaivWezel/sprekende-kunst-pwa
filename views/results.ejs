@@ -4,15 +4,17 @@
 
 <body>
 	<%- include("./partials/header.ejs") %>
-	<% if (query && count > 0) { %>
-		<h1><%= count %> Resultaten gevonden voor "<%= query %>"</h1>
-	<% } else if (query){ %>
-		<h1>Helaas geen resultaten gevonden voor "<%= query %>"</h1>
-	<% } else { %>
+	<% if (!query) { %>
 		<h1>Resultaten</h1>
+	<% } else if (query && count > 0){ %>
+		<h1><%= count %> Resultaten gevonden voor "<%= query %>"</h1>
+	<% } else { %>
+		<h1>Helaas geen resultaten gevonden voor "<%= query %>"</h1>
 	<% } %>
-
+	
+	<% if (results) { %>
 	<%- include("./partials/result.ejs", {results: results}) %>
+	<% } %>
 	<div class="loader">
 		<span></span>
 		<span></span>

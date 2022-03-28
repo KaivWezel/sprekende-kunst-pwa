@@ -1,5 +1,4 @@
 import express from "express";
-import ejs from "ejs";
 import * as path from "path";
 import { fileURLToPath } from "url";
 import Router from "./router/Router.js";

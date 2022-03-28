@@ -5,6 +5,9 @@
 		<%- include("./partials/header.ejs") %>
         <main>
             <h1><%= artist %></h1>
+			<% if (results) { %>
+				<%- include("./partials/result.ejs", {results: results}) %>
+			<% } %>
         </main>
 	</body>
 </html>

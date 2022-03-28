@@ -5,7 +5,7 @@ import { fileURLToPath } from "url";
 import Router from "./router/Router.js";
 
 const app = express();
-const port = 3030;
+const port = 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.set("view engine", "ejs");

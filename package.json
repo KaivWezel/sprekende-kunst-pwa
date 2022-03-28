@@ -11,7 +11,9 @@
 	"scripts": {
 		"start": "node index",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "nodemon index.js"
+		"dev": "nodemon index.js",
+		"build:js": "npx rollup index.js --config",
+		"build:html": "node /scripts/build-html.js"
 	},
 	"repository": {
 		"type": "git",
@@ -29,5 +31,8 @@
 		"express": "^4.17.3",
 		"node-fetch": "^3.2.3",
 		"nodemon": "^2.0.15"
+	},
+	"devDependencies": {
+		"rollup": "^2.70.1"
 	}
 }

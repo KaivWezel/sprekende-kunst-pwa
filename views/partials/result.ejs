@@ -2,6 +2,10 @@
 <div class="result">
 	<h3><%= result.title %></h3>
 	<h4><%= result.longTitle %></h4>
-	<img src="<% if (result.webImage) { %><%= result.webImage.url %><% } %>" alt="" loading="lazy" />
+	<% if (result.webImage) { %>
+		<img src="<%= result.webImage.url.slice(0,-3)+"=s1000"%>" alt="">	
+	<% } else { %>
+		<p><i>No image available</i></p>
+	<% } %>
 </div>
 <% }); %>

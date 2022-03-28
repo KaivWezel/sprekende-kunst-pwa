@@ -1,6 +1,7 @@
 import express from "express";
 import fetch from "node-fetch";
 import "dotenv/config";
+import { query } from "express";
 
 const router = express.Router();
 
@@ -12,38 +13,46 @@ router.get("/artists", (req, res) => {
 	res.render("artists");
 });
 
-router.get("/artists/:artist", (req, res) => {
+router.get("/artists/:artist", async (req, res) => {
 	const artist = req.params.artist.replaceAll("-", " ");
+	console.log(artist);
+	const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&involvedMaker=${artist}&s=relevance&ps=20`;
+	const response = await fetch(url);
+	const results = await response.json();
+	console.log(results.artObjects.webImage);
+
 	res.render("artist", {
 		artist,
+		results: results.artObjects,
 	});
 });
 
 router.get("/results", async (req, res) => {
 	console.log(req.query);
-	try {
-		const query = req.query.q ? req.query.q : "";
-		const maker = req.query.involvedMaker ? req.query.involvedMaker : "";
-		const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&q=${query}&${maker}&s=relevance&ps=20`;
-		console.log("query:", req.query);
-		if (query != "") {
+	if (Object.keys(req.query).length === 0) {
+		console.log("no query");
+		res.render("results", {
+			page: undefined,
+		});
+	} else {
+		try {
+			const query = req.query.q ? req.query.q : "";
+			const maker = req.query.involvedMaker
+				? "&" + req.query.involvedMaker
+				: "";
+			const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&q=${query}${maker}&s=relevance&ps=20`;
 			const data = await fetch(url);
-			// console.log(data);
 			const results = await data.json();
 			res.render("results", {
-				results: results.artObjects,
-				query: req.query.q,
-				count: results.artObjects.length,
+				page: {
+					results: results.artObjects,
+					query: req.query.q,
+					count: results.artObjects.length,
+				},
 			});
-		} else {
-			res.render("results", {
-				query: null,
-				count: null,
-				results: undefined,
-			});
+		} catch (err) {
+			console.log(err);
 		}
-	} catch (err) {
-		console.log(err);
 	}
 });
 

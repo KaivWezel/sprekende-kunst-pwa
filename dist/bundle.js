@@ -44,7 +44,9 @@ router.get("/artists/:artist", async (req, res) => {
 	const artist = req.params.artist.replaceAll("-", " ");
 	console.log(artist);
 	const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&involvedMaker=${artist}&s=relevance&ps=20`;
+	console.log(url);
 	const response = await fetch__default["default"](url);
+	console.log(response);
 	const results = await response.json();
 	console.log(results.artObjects.webImage);
 

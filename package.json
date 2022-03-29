@@ -13,7 +13,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "nodemon index.js",
 		"build:js": "npx rollup --config",
-		"build:html": "node /scripts/build-html.js"
+		"build:html": "node scripts/build-html.js"
 	},
 	"repository": {
 		"type": "git",

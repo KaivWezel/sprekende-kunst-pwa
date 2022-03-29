@@ -6,6 +6,7 @@
         <main>
             <h1><%= artist %></h1>
 			<% if (results) { %>
+				<h3>Gemaakte werken</h3>
 				<%- include("./partials/result.ejs", {results: results}) %>
 			<% } %>
         </main>

@@ -10,11 +10,40 @@ import fetch from "node-fetch";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const artists = [
+	"Rembrandt van Rijn",
+	"Johannes Vermeer",
+	"Jheronimus Bosch",
+	"Piet Mondriaan",
+	"Vincent van Gogh",
+];
 
 function generateHomepage() {
 	const html = renderTemplate("./views/index.ejs");
 	writeFile("./dist", "index.html", html);
 }
+
+function generateArtistsPage() {
+	const html = renderTemplate("./views/artists.ejs");
+	writeFile("./dist", "artists.html", html);
+}
+
+async function generateArtistDetailPages() {
+	for (const artist of artists) {
+		const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&involvedMaker=${artist}&s=relevance&ps=20`;
+		const response = await fetch(url);
+		console.log(response);
+		const results = await response.json();
+		const html = await renderTemplate("./views/artist.ejs", {
+			artist,
+			results: results.artObjects,
+		});
+		const fileName = artist.replaceAll(" ", "-");
+		writeFile("./dist/artists", `${fileName}.html`, html);
+	}
+}
+
+function generateResultsPage() {}
 
 function renderTemplate(templatePath, data) {
 	const template = fs.readFileSync(templatePath, "utf-8").toString();
@@ -30,3 +59,5 @@ function writeFile(fileDirectory, fileName, content) {
 }
 
 generateHomepage();
+generateArtistsPage();
+generateArtistDetailPages();

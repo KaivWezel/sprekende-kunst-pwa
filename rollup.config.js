@@ -12,7 +12,7 @@ export default {
 		copy({
 			targets: [
 				{
-					src: ["public/styles", "public/img", "public/js", "public/sw.js"],
+					src: ["public/styles", "public/img", "public/js"],
 					dest: "dist",
 				},
 			],

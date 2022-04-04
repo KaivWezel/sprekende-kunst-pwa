@@ -26,12 +26,14 @@ const assets = [
 ];
 
 // intall service wokrer
+// Pre-cache app core files
 self.addEventListener("install", (e) => {
 	e.waitUntil(addToCache(assets));
 	console.log("serviceworker installed");
 });
 
 // Coded with NetNinja https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg
+// On activate, delete old caches and replace them with new ones
 self.addEventListener("activate", (e) => {
 	console.log("activated sw");
 	e.waitUntil(
@@ -46,6 +48,7 @@ self.addEventListener("activate", (e) => {
 });
 
 // Coded with NetNinja https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg
+// Respond with cache if available, if unavailable go to network
 self.addEventListener("fetch", (e) => {
 	e.respondWith(
 		caches.match(e.request).then((cacheRes) => {

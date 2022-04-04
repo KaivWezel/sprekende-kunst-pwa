@@ -1,7 +1,13 @@
 // intall service wokrer
 self.addEventListener("install", (event) => {
 	event.waitUntil(
-		addToCache(["/styles/index.css", "/js/app.js", "/img/icons"])
+		addToCache([
+			"/styles/index.css",
+			"/js/app.js",
+			"/img/icons",
+			"index.html",
+			"artists.html",
+		])
 	);
 	console.log("serviceworker installed");
 });

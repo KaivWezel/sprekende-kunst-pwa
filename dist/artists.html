@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="manifest" href="/manifest.json">
+	<link rel="apple-touch-icon" href="/img/icons/bookmark-40.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/styles/index.css" />
+	<meta name="theme-color" content="#141414" />
+	<script src="/js/app.js"></script>
+	<title>Sprekende kunst</title>
+</head>
+
+	<body>
+		<header>
+<a href="/"><h1>Sprekende kunst</h1></a>
+	<nav>
+		<a href="/artists">Kunstenaars</a>
+		<a href="/results">Resultaten</a>
+		<form action="/results" method="GET">
+			<label for="search">Zoeken</label>
+			<input type="search" id="search" name="q" />
+		</form>
+	</nav>
+</header>
+
+		<main>
+			<h1>Ontek 5 van Nederlands groostse kunstenaars</h1>
+			<section title="artists" class="artists">
+				<div class="artist">
+					<a href="/artists/Rembrandt-van-Rijn">
+						<img
+							src="/img/rembrandtvanrijn.jpg"
+							alt="Selfportrait of Rembrandt van Rijn"
+						/>
+						<h3>Rembrand van Rijn</h3>
+						<p>1606 - 1669</p>
+					</a>
+				</div>
+				<div class="artist">
+					<a href="/artists/Vincent-van-Gogh">
+						<img
+							src="/img/vincentvangogh.jpg"
+							alt="Portrait of Vincent van Gogh"
+						/>
+						<h3>Vincent van Gogh</h3>
+						<p>1853 - 1890</p>
+					</a>
+				</div>
+				<div class="artist">
+					<a href="/artists/Piet-Mondriaan">
+						<img src="/img/pietmondriaan.jpg" alt="Portait of Piet Mondriaan" />
+						<h3>Piet Mondriaan</h3>
+						<p>1872 - 1944</p>
+					</a>
+				</div>
+				<div class="artist">
+					<a href="/artists/Johannes-Vermeer">
+						<img
+							src="/img/johannesvermeer.jpg"
+							alt="Portait of Johannes Vermeer"
+						/>
+						<!-- Image from https://www.sterkaandemuur.nl/c-5186080/johannes-vermeer/ -->
+						<h3>Johannes Vermeer</h3>
+						<p>1632 - 1675</p>
+					</a>
+				</div>
+				<div class="artist">
+					<a href="/artists/Jheronimus-Bosch">
+						<img
+							src="/img/jheronimusbosch.jpg"
+							alt="portrait of Jheronimus Bosch"
+						/>
+						<!-- Image from https://www.europeana.eu/en/item/2021633/AtlantisPubliek_detail_aspx_xmldescid_15009950-->
+						<h3>Jheronimus Bosch</h3>
+						<p>~1450 - 1516</p>
+					</a>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

@@ -33,6 +33,11 @@ function generateArtistsPage() {
 	writeFile("./dist", "artists.html", html);
 }
 
+function generateResultsPage() {
+	const html = renderTemplate("./views/results.ejs", { page: undefined });
+	writeFile("./dist", "results.html", html);
+}
+
 async function generateArtistDetailPages() {
 	for (const artist of artists) {
 		const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${process.env.APIKEY}&involvedMaker=${artist}&s=relevance&ps=20`;
@@ -47,8 +52,6 @@ async function generateArtistDetailPages() {
 		writeFile("./dist/artists", `${fileName}.html`, html);
 	}
 }
-
-function generateResultsPage() {}
 
 function renderTemplate(templatePath, data) {
 	const template = fs.readFileSync(templatePath, "utf-8").toString();
@@ -66,4 +69,5 @@ function writeFile(fileDirectory, fileName, content) {
 generateHomepage();
 generateOfflinePage();
 generateArtistsPage();
+generateResultsPage();
 generateArtistDetailPages();

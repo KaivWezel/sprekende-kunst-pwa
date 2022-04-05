@@ -11,3 +11,10 @@ if ("serviceWorker" in navigator) {
 			console.log(err);
 		});
 }
+
+const navSearch = document.querySelector("nav form");
+console.log(navSearch);
+navSearch.addEventListener("submit", (e) => {
+	e.preventDefault();
+	console.log("searched");
+});

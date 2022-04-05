@@ -61,6 +61,8 @@ const createCard = async (art) => {
 	const card = document.createElement("article");
 	card.classList.add("artCard");
 	const image = document.createElement("img");
+	const textBox = document.createElement("div");
+	textBox.classList.add("textBox");
 	const title = document.createElement("h3");
 	const subtitle = document.createElement("h4");
 	const description = document.createElement("p");
@@ -77,10 +79,11 @@ const createCard = async (art) => {
 		: "Geen beschrijving beschikbaar";
 
 	// Append elements to card
+	textBox.appendChild(title);
+	textBox.appendChild(subtitle);
+	textBox.appendChild(description);
 	card.appendChild(image);
-	card.appendChild(title);
-	card.appendChild(subtitle);
-	card.appendChild(description);
+	card.appendChild(textBox);
 
 	// Append card to list
 	return card;

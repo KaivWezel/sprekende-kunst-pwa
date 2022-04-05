@@ -1,4 +1,6 @@
 const assets = [
+	"/index.html",
+	"/",
 	"/offline",
 	"/artists",
 	"/artists/Jheronimus-Bosch",
@@ -16,8 +18,8 @@ const assets = [
 	"https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,300&display=swap",
 ];
 
-const staticCache = "sprekende-kunst-static-v7";
-const dynamicCache = "sprekende-kunst-dynamic-v7";
+const staticCache = "sprekende-kunst-static-v1";
+const dynamicCache = "sprekende-kunst-dynamic-v1";
 
 // intall service wokrer
 // Pre-cache app core files

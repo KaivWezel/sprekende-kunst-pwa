@@ -4,20 +4,23 @@
 
 <body>
 	<%- include("./partials/header.ejs") %>
-	<% if (page == undefined) { %>
-		<h1>Resultaten</h1>
-	<% } else if (page.query && page.count > 0){ %>
-		<h1><%= page.count %> Resultaten gevonden voor "<%= page.query %>"</h1>
-		<%- include("./partials/result.ejs", {results: page.results}) %>
-	<% } else { %>
-		<h1>Helaas geen resultaten gevonden voor "<%= page.query %>"</h1>
-	<% } %>
-	<div class="loader">
-		<span></span>
-		<span></span>
-		<span></span>
-	</div>
-	<button class="nextPage">Meer resultaten</button>
+	<main>
+		<% if (page === undefined) { %>
+			<h1>Resultaten</h1>
+			<div class="resultsList"></div>
+		<% } else if (page.query && page.count > 0){ %>
+			<h1><%= page.count %> Resultaten gevonden voor "<%= page.query %>"</h1>
+			<%- include("./partials/result.ejs", {results: page.results}) %>
+		<% } else { %>
+			<h1>Helaas geen resultaten gevonden voor "<%= page.query %>"</h1>
+		<% } %>
+		<div class="loader">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<button class="nextPage">Meer resultaten</button>
+	</main>
 </body>
 
 </html>

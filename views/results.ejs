@@ -10,7 +10,9 @@
 			<div class="resultsList"></div>
 		<% } else if (page.query && page.count > 0){ %>
 			<h1><%= page.count %> Resultaten gevonden voor "<%= page.query %>"</h1>
-			<%- include("./partials/result.ejs", {results: page.results}) %>
+			<div class="resultsList">
+				<%- include("./partials/result.ejs", {results: page.results}) %>
+			</div>
 		<% } else { %>
 			<h1>Helaas geen resultaten gevonden voor "<%= page.query %>"</h1>
 		<% } %>

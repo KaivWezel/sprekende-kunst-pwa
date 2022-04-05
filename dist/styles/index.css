@@ -83,7 +83,7 @@ header form input {
 
 main {
 	position: relative;
-	margin: 0 1rem;
+	padding: 0 1rem;
 }
 
 section {
@@ -233,6 +233,30 @@ button:active {
 .artist:hover {
 	filter: none;
 	transform: scale(1.1);
+}
+
+/* Results list styling */
+.resultsList {
+	margin: 2rem 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.artCard {
+	margin: 2rem auto;
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.artCard img {
+	max-width: 400px;
+	margin-right: 5rem;
+	margin-bottom: 1rem;
+}
+
+.artCard .textBox {
+	max-width: 600px;
 }
 
 /* Loader styling

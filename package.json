@@ -12,10 +12,9 @@
 		"start": "node index",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "nodemon index.js",
-		"build": "npm run build:js && build:html",
+		"build": "npm run build:js && npm run build:html",
 		"build:js": "npx rollup --config",
 		"build:html": "node scripts/build-html.js"
-		
 	},
 	"repository": {
 		"type": "git",

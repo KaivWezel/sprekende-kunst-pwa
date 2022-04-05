@@ -23,6 +23,11 @@ function generateHomepage() {
 	writeFile("./dist", "index.html", html);
 }
 
+function generateOfflinePage() {
+	const html = renderTemplate("./views/offline.ejs");
+	writeFile("./dist", "offline.html", html);
+}
+
 function generateArtistsPage() {
 	const html = renderTemplate("./views/artists.ejs");
 	writeFile("./dist", "artists.html", html);
@@ -59,5 +64,6 @@ function writeFile(fileDirectory, fileName, content) {
 }
 
 generateHomepage();
+generateOfflinePage();
 generateArtistsPage();
 generateArtistDetailPages();

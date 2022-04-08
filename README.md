@@ -17,3 +17,20 @@ After converting it to an SSR application, I took on the challenge to make serve
 To generate the HTML files, I wrote some scripts for ejs to render my templates with some predetermined data so a static page would rollout. In the [scripts](scripts/build-html.js)-folder, you can see how I composed the scripts. You can run this script in node to execute the functions and create a dist folder for distribution.
 
 I defined this script in the package.json as "npm run build"
+
+### Rollup.js
+
+I use [rollup.js](https://rollupjs.org/) to bundle the javascript and copy the static files to the dist folder. With plugins I can minify the HTML and CSS so the filesize will be even smaller.
+
+## Activity Diagram
+
+![Activity Diagram with Service Worker](/img/activityDiagramPWA.png)
+
+## Critical render path
+
+To optimize the critical render path, I did a few things:
+
+- Slice queried images from the Rijksmuseum API
+- lazy-load images so they are only loaded if the user should see them
+- Use cache versions to update pages and remove old ones
+- Minify the HTML, CSS and JS

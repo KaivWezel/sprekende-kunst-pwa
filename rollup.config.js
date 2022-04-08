@@ -3,9 +3,9 @@
 import copy from "rollup-plugin-copy";
 
 export default {
-	input: "index.js",
+	input: ["public/js/app.js", "index.js"],
 	output: {
-		file: "dist/bundle.js",
+		dir: "dist/bundles",
 		format: "cjs",
 	},
 	plugins: [

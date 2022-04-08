@@ -1,3 +1,4 @@
+import { renderResults, searchArt } from "./search.js";
 console.log("appje");
 
 if ("serviceWorker" in navigator) {
@@ -23,30 +24,9 @@ navSearch.addEventListener("submit", async (e) => {
 });
 
 window.onload = async (e) => {
-	console.log(window.location);
 	const path = window.location.pathname;
 	const query = window.location.search.replace("?", "");
-	if (path === "/results" && query !== "") {
-		console.log("het is results");
-		const url = `https://www.rijksmuseum.nl/api/nl/collection?key=${apiKey}&q=${query}&s=relevance&ps=20`;
-		const response = await fetch(url);
-		const data = await response.json();
-		console.log(data.artObjects);
-
-		if (data.artObjects.length > 0) {
-			renderResults(data.artObjects);
-		}
-	}
-};
-
-const renderResults = async (results) => {
-	const resultsList = document.querySelector(".resultsList");
-	resultsList.innerHTML = "";
-	for (const result of results) {
-		console.log(1);
-		const card = await createCard(result);
-		append(resultsList, card);
-	}
+	searchArt(path, query);
 };
 
 const createCard = async (art) => {
